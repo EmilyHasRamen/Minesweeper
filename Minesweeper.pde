@@ -26,11 +26,12 @@ void setup ()
     }
     
     setBombs();
+    //System.out.println()
 }
 public void setBombs()
 {
     //your code
-    for(int bNum=0; bNum<=45; bNum++)
+    for(int bNum=0; bNum<=50; bNum++)
     {
         int tempRow=(int)(Math.random()*20);
         int tempCol=(int)(Math.random()*20);
@@ -119,6 +120,10 @@ public class MSButton
     public boolean isValid(int r, int c)
     {
         //your code here
+        if (r<20 && c<20) 
+        {
+            return true;
+        }
         
         return false;
     }
@@ -126,6 +131,50 @@ public class MSButton
     {
         int numBombs = 0;
         //your code here
+        if (MSButton(row, col).isValid()) 
+        {
+            if(MSButton(row-1, col).isValid() && bombs.contains(buttons[row][col])
+            {
+                numBombs++;
+                MSButton(row-1, col).countBombs();
+            }    
+            if(MSButton(row+1, col).isValid() && bombs.contains(buttons[row][col])
+            {
+                numBombs++;
+                MSButton(row+1, col).countBombs();
+            }    
+            if(MSButton(row, col-1).isValid() && bombs.contains(buttons[row][col])
+            {
+                numBombs++;
+                MSButton(row, col-1).countBombs();
+            }    
+            if(MSButton(row, col+1).isValid() && bombs.contains(buttons[row][col])
+            {
+                numBombs++;
+                MSButton(row, col+1).countBombs();
+            }    
+            if(MSButton(row-1, col-1).isValid() && bombs.contains(buttons[row][col])
+            {
+                numBombs++;
+                MSButton(row-1, col-1).countBombs();
+            }    
+            if(MSButton(row+1, col+1).isValid() && bombs.contains(buttons[row][col])
+            {
+                numBombs++;
+                MSButton(row+1, col+1).countBombs();
+            }    
+            if(MSButton(row+1, col-1).isValid() && bombs.contains(buttons[row][col])
+            {
+                numBombs++;
+                MSButton(row+1, col-1).countBombs();
+            }    
+            if(MSButton(row-1, col+1).isValid() && bombs.contains(buttons[row][col])
+            {
+                numBombs++;
+                MSButton(row-1, col+1).countBombs();
+            }    
+
+        }
         return numBombs;
     }
 }
